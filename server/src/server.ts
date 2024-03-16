@@ -15,6 +15,13 @@ app.use(express.json());
 //fix cors error
 app.use(cors());
 
+//GET all decks
+app.get("/decks", async (req: Request, res: Response) => {
+  const decks = await Deck.find();
+  res.json(decks);
+});
+
+//POST a new deck
 app.post("/decks", async (req: Request, res: Response) => {
   console.log(req.body);
   const newDeck = new Deck({
