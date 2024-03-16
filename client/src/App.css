@@ -1,42 +1,83 @@
-#root {
-  max-width: 1280px;
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300..800;1,300..800&display=swap");
+
+* {
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: var(--white);
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+:root {
+  --light-grey: #e9e9e9;
+  --purple: #c9a2d6;
+  --light-green: #d0dddb;
+  --black: #030303;
+  --white: #f4f4f4;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button:hover {
+  cursor: pointer;
+  font-family: inherit;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* Decks area */
+.decks {
+  display: grid;
+  width: 80%;
+  margin: 0 auto;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px;
 }
 
-.card {
-  padding: 2em;
+/* Card */
+.decks li {
+  list-style: none;
+  width: 100%;
+  height: 160px;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: var(--light-green);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease-out;
 }
 
-.read-the-docs {
-  color: #888;
+.decks li:hover {
+  cursor: pointer;
+  background-color: var(--purple);
+}
+
+/* Create Deck */
+.createDeck-form {
+  margin-top: 20px;
+  width: 800px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.createDeck-label {
+  font-weight: bold;
+}
+
+.createDeck-input {
+  border: none;
+  border-radius: 10px;
+  background-color: var(--light-grey);
+  padding: 0.6rem 1rem;
+  margin: 1rem;
+  width: 500px;
+}
+
+.createDeck-btn {
+  background-color: var(--black);
+  color: var(--white);
+  font-weight: bold;
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 10px;
 }
