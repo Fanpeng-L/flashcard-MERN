@@ -23,7 +23,6 @@ app.get("/decks", async (req: Request, res: Response) => {
 
 //POST a new deck
 app.post("/decks", async (req: Request, res: Response) => {
-  console.log(req.body);
   const newDeck = new Deck({
     title: req.body.title,
   });

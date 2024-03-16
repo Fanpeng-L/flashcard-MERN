@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { MdDeleteOutline } from "react-icons/md";
 import "./App.css";
 
 type TDeck = {
@@ -10,9 +11,10 @@ function App() {
   const [title, setTitle] = useState("");
   const [decks, setDecks] = useState<TDeck[]>([]);
 
+  //create a new deck
   async function createDeckHandler(e: React.FormEvent) {
     e.preventDefault();
-    await fetch("http://localhost:5000/decks", {
+    const response = await fetch("http://localhost:5000/decks", {
       method: "POST",
       body: JSON.stringify({
         title,
@@ -21,9 +23,21 @@ function App() {
         "Content-Type": "application/json",
       },
     });
+    const deck = await response.json();
+    setDecks([...decks, deck]);
     setTitle("");
   }
 
+  //delete a deck
+  async function deleteHandler(deckId: string) {
+    await fetch(`http://localhost:5000/decks/${deckId}`, {
+      method: "DELETE",
+    });
+    //filter out the delete deck
+    setDecks(decks.filter((deck) => deck._id !== deckId));
+  }
+
+  //fetch all decks
   useEffect(() => {
     async function fetchDecks() {
       const newDecks = await fetch("http://localhost:5000/decks").then(
@@ -55,7 +69,15 @@ function App() {
 
       <ul className="decks">
         {decks.map((deck) => (
-          <li key={deck._id}>{deck.title}</li>
+          <li key={deck._id}>
+            {deck.title}
+            <div
+              onClick={() => deleteHandler(deck._id)}
+              className="decks-delete-btn"
+            >
+              <MdDeleteOutline />
+            </div>
+          </li>
         ))}
       </ul>
     </div>
