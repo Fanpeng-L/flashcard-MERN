@@ -4,14 +4,18 @@ import "./App.css";
 function App() {
   const [title, setTitle] = useState("");
 
-  function createDeckHandler(e: React.FormEvent) {
+  async function createDeckHandler(e: React.FormEvent) {
     e.preventDefault();
-    fetch("http://localhost:5000/decks", {
+    await fetch("http://localhost:5000/decks", {
       method: "POST",
       body: JSON.stringify({
         title,
       }),
+      headers: {
+        "Content-Type": "application/json",
+      },
     });
+    setTitle("");
   }
 
   return (
