@@ -31,6 +31,13 @@ app.post("/decks", async (req: Request, res: Response) => {
   res.json(createdDeck);
 });
 
+//DELETE a deck
+app.delete("/decks/:deckId", async (req: Request, res: Response) => {
+  const deckId = req.params.deckId;
+  const deleteDeck = await Deck.findByIdAndDelete(deckId);
+  res.json(deleteDeck);
+});
+
 // connect to mongoose
 mongoose.connect(process.env.MONGO_URL!).then(() => {
   app.listen(port, () => {

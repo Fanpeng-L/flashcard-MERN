@@ -22,6 +22,37 @@ button:hover {
   font-family: inherit;
 }
 
+/* Create Deck */
+.createDeck-form {
+  margin: 20px auto;
+  width: 800px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.createDeck-label {
+  font-weight: bold;
+}
+
+.createDeck-input {
+  border: none;
+  border-radius: 10px;
+  background-color: var(--light-grey);
+  padding: 0.6rem 1rem;
+  margin: 1rem;
+  width: 500px;
+}
+
+.createDeck-btn {
+  background-color: var(--black);
+  color: var(--white);
+  font-weight: bold;
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 10px;
+}
+
 /* Decks area */
 .decks {
   display: grid;
@@ -49,35 +80,4 @@ button:hover {
 .decks li:hover {
   cursor: pointer;
   background-color: var(--purple);
-}
-
-/* Create Deck */
-.createDeck-form {
-  margin-top: 20px;
-  width: 800px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.createDeck-label {
-  font-weight: bold;
-}
-
-.createDeck-input {
-  border: none;
-  border-radius: 10px;
-  background-color: var(--light-grey);
-  padding: 0.6rem 1rem;
-  margin: 1rem;
-  width: 500px;
-}
-
-.createDeck-btn {
-  background-color: var(--black);
-  color: var(--white);
-  font-weight: bold;
-  padding: 0.6rem 1rem;
-  border: none;
-  border-radius: 10px;
 }

@@ -36,11 +36,6 @@ function App() {
 
   return (
     <div className="App">
-      <ul className="decks">
-        {decks.map((deck) => (
-          <li key={deck._id}>{deck.title}</li>
-        ))}
-      </ul>
       <form className="createDeck-form" onSubmit={createDeckHandler}>
         <label className="createDeck-label" htmlFor="deck-title">
           Deck Title:
@@ -57,6 +52,12 @@ function App() {
         />
         <button className="createDeck-btn">Create Card Deck</button>
       </form>
+
+      <ul className="decks">
+        {decks.map((deck) => (
+          <li key={deck._id}>{deck.title}</li>
+        ))}
+      </ul>
     </div>
   );
 }
