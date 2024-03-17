@@ -1,0 +1,49 @@
+.header {
+  margin-bottom: 2rem;
+  padding: 0.8rem;
+  background-color: var(--mocha-green);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  text-decoration: none;
+  color: var(--black);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 2rem;
+}
+
+.logo h1 {
+  font-size: 2rem;
+  margin-left: 1rem;
+}
+
+.login-btn {
+  background-color: var(--grey);
+  border: 0.1rem solid var(--black);
+  border-radius: 30px;
+  box-shadow: var(--black) 4px 4px 0 0;
+  display: inline-block;
+  font-weight: 400;
+  padding: 0.8rem;
+  margin-right: 2rem;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  transition: all 0.1s ease;
+}
+
+.login-btn:hover {
+  background-color: var(--purple);
+  transform: translateY(-2px);
+}
+
+.login-btn:active {
+  box-shadow: var(--black) 2px 2px 0 0;
+  transform: translate(2px, 2px);
+}

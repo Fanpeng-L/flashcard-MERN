@@ -104,6 +104,7 @@ button:hover {
 
 .createDeck-btn:hover {
   background-color: var(--purple);
+  transform: translateY(-2px);
 }
 
 .createDeck-btn:active {
