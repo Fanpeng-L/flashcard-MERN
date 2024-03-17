@@ -126,7 +126,6 @@ button:hover {
   width: 100%;
   height: 160px;
   border-radius: 2rem;
-  padding: 1rem;
   background-color: var(--mocha-green);
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 8px;
   display: flex;
@@ -140,6 +139,7 @@ button:hover {
   cursor: pointer;
   background-color: var(--purple);
   transform: translateY(-2px);
+  text-align: center;
 }
 
 .decks .decks-delete-btn {
@@ -155,7 +155,18 @@ button:hover {
 
 .decks-link {
   text-decoration: none;
-  color: var(--black);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.decks-link-title {
   font-size: 1.5rem;
   font-weight: 400;
+  text-align: center;
+  line-height: 2rem;
+  margin: 1rem 2rem;
+  color: var(--black);
 }

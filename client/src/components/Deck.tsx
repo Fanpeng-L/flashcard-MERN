@@ -1,5 +1,5 @@
 function Deck() {
-  return <div>Deck page</div>;
+  return <div>deck</div>;
 }
 
 export default Deck;

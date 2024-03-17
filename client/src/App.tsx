@@ -2,11 +2,9 @@ import { useEffect, useState } from "react";
 import { MdDeleteOutline } from "react-icons/md";
 import "./App.css";
 import { Link } from "react-router-dom";
-
-type TDeck = {
-  title: string;
-  _id: string;
-};
+import deleteDeck from "./api/deleteDeck";
+import getDecks, { TDeck } from "./api/getDecks";
+import createDeck from "./api/createDeck";
 
 function App() {
   const [title, setTitle] = useState("");
@@ -15,25 +13,14 @@ function App() {
   //create a new deck
   async function createDeckHandler(e: React.FormEvent) {
     e.preventDefault();
-    const response = await fetch("http://localhost:5000/decks", {
-      method: "POST",
-      body: JSON.stringify({
-        title,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    const deck = await response.json();
+    const deck = await createDeck(title);
     setDecks([...decks, deck]);
     setTitle("");
   }
 
   //delete a deck
   async function deleteHandler(deckId: string) {
-    await fetch(`http://localhost:5000/decks/${deckId}`, {
-      method: "DELETE",
-    });
+    await deleteDeck(deckId);
     //filter out the delete deck
     setDecks(decks.filter((deck) => deck._id !== deckId));
   }
@@ -41,9 +28,7 @@ function App() {
   //fetch all decks
   useEffect(() => {
     async function fetchDecks() {
-      const newDecks = await fetch("http://localhost:5000/decks").then(
-        (response) => response.json()
-      );
+      const newDecks = await getDecks();
       setDecks(newDecks);
     }
     fetchDecks();
@@ -69,7 +54,6 @@ function App() {
         </div>
         <button className="createDeck-btn">Create Card Deck</button>
       </form>
-
       <ul className="decks">
         {decks.map((deck) => (
           <li key={deck._id}>
@@ -79,8 +63,9 @@ function App() {
             >
               <MdDeleteOutline size={20} />
             </div>
+
             <Link to={`/decks/:${deck._id}`} className="decks-link">
-              {deck.title}
+              <div className="decks-link-title">{deck.title}</div>
             </Link>
           </li>
         ))}
