@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { MdDeleteOutline } from "react-icons/md";
 import "./App.css";
+import { Link } from "react-router-dom";
 
 type TDeck = {
   title: string;
@@ -51,32 +52,36 @@ function App() {
   return (
     <div className="App">
       <form className="createDeck-form" onSubmit={createDeckHandler}>
-        <label className="createDeck-label" htmlFor="deck-title">
-          Deck Title:
-        </label>
-        <input
-          className="createDeck-input"
-          placeholder="Enter your deck title"
-          id="deck-title"
-          value={title}
-          type="text"
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-            setTitle(e.target.value);
-          }}
-        />
+        <div className="createDeck-input-wrapper">
+          <input
+            className="createDeck-input"
+            placeholder=""
+            id="deck-title"
+            value={title}
+            type="text"
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+              setTitle(e.target.value);
+            }}
+          />
+          <label htmlFor="deck-title" className="createDeck-label">
+            Enter your deck's title
+          </label>
+        </div>
         <button className="createDeck-btn">Create Card Deck</button>
       </form>
 
       <ul className="decks">
         {decks.map((deck) => (
           <li key={deck._id}>
-            {deck.title}
             <div
               onClick={() => deleteHandler(deck._id)}
               className="decks-delete-btn"
             >
-              <MdDeleteOutline />
+              <MdDeleteOutline size={20} />
             </div>
+            <Link to={`/decks/:${deck._id}`} className="decks-link">
+              {deck.title}
+            </Link>
           </li>
         ))}
       </ul>

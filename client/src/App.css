@@ -6,6 +6,7 @@
   box-sizing: border-box;
   font-family: "Inter", sans-serif;
   font-size: 1rem;
+  line-height: 1rem;
 }
 
 body {
@@ -13,8 +14,8 @@ body {
 }
 
 :root {
-  --light-grey: #e9e9e9;
-  --purple: #c9a2d6;
+  --grey: #dcdcdc;
+  --purple: #d8bae2;
   --mocha-green: #d0dddb;
   --black: #030303;
   --white-green: #f5f6f3;
@@ -27,33 +28,87 @@ button:hover {
 
 /* Create Deck */
 .createDeck-form {
-  margin: 20px auto;
-  width: 800px;
+  margin: 3rem auto;
+  width: 50rem;
+  height: 3rem;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.createDeck-label {
-  font-weight: bold;
+.createDeck-input-wrapper {
+  width: 36rem;
+  position: relative;
+  height: 90%;
+  display: inline-block;
 }
 
 .createDeck-input {
-  border: none;
-  border-radius: 10px;
-  background-color: var(--light-grey);
-  padding: 0.6rem 1rem;
-  margin: 1rem;
-  width: 500px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding-top: 1rem;
+  border: 0.1rem solid var(--black);
+  border-radius: 1rem;
+  font-family: inherit;
+  outline: none;
+  padding: 1.25rem;
+  background-color: var(--white-green);
+  transition: all 0.3s ease;
+}
+
+.createDeck-input:hover {
+  border-color: var(--purple);
+}
+
+.createDeck-input:focus {
+  border-color: var(--purple);
+}
+
+.createDeck-label {
+  position: absolute;
+  left: 1rem;
+  top: 0.8rem;
+  padding: 0 0.5rem;
+  cursor: text;
+  transition: all 0.3s ease;
+  background-color: var(--white-green);
+}
+
+.createDeck-input:focus ~ .createDeck-label,
+.createDeck-input:not(:placeholder-shown).createDeck-input:not(:focus)
+  ~ .createDeck-label {
+  color: var(--purple);
+  top: -0.5rem;
+  font-size: 0.8rem;
+  left: 0.8rem;
 }
 
 .createDeck-btn {
-  background-color: var(--black);
-  color: var(--white-green);
-  font-weight: bold;
-  padding: 0.6rem 1rem;
-  border: none;
-  border-radius: 10px;
+  background-color: var(--grey);
+  border: 0.1rem solid var(--black);
+  border-radius: 30px;
+  box-shadow: var(--black) 4px 4px 0 0;
+  display: inline-block;
+  font-weight: 400;
+  padding: 0.8rem;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  transition: all 0.1s ease;
+}
+
+.createDeck-btn:hover {
+  background-color: var(--purple);
+}
+
+.createDeck-btn:active {
+  box-shadow: var(--black) 2px 2px 0 0;
+  transform: translate(2px, 2px);
 }
 
 /* Decks area */
@@ -62,7 +117,7 @@ button:hover {
   width: 80%;
   margin: 0 auto;
   grid-template-columns: repeat(3, 1fr);
-  gap: 50px;
+  gap: 4rem;
 }
 
 /* Card */
@@ -70,24 +125,37 @@ button:hover {
   list-style: none;
   width: 100%;
   height: 160px;
-  border-radius: 10px;
-  padding: 20px;
+  border-radius: 2rem;
+  padding: 1rem;
   background-color: var(--mocha-green);
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 8px;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: all 0.3s ease-out;
+  transition: all 0.3s ease;
   position: relative;
 }
 
 .decks li:hover {
   cursor: pointer;
   background-color: var(--purple);
+  transform: translateY(-2px);
 }
 
 .decks .decks-delete-btn {
   position: absolute;
-  top: 15px;
-  right: 15px;
+  top: 1.2rem;
+  right: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.decks-delete-btn:hover {
+  transform: scale(1.2);
+}
+
+.decks-link {
+  text-decoration: none;
+  color: var(--black);
+  font-size: 1.5rem;
+  font-weight: 400;
 }
