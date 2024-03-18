@@ -38,9 +38,8 @@ export default function DecksList() {
   return (
     <div>
       <Header />
-      <p>THis is home page, shows all the Decks List</p>
       <h1 className="home-title">
-        <span>Flash & Learn</span>: Your Shortcut to Mastery!
+        <span>Flashcards</span>: Your Shortcut to Mastery!
       </h1>
 
       <form className="createDeck-form" onSubmit={createDeckHandler}>

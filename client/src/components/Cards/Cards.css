@@ -29,7 +29,31 @@
 
 .cards-content:hover {
   transform: scale(1.04);
-  background-color: var(--purple);
+}
+
+.cards-content {
+  appearance: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100%;
+  will-change: transform;
+}
+
+.cards-content:disabled {
+  pointer-events: none;
+}
+
+.cards-content:hover {
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+}
+
+.cards-content:active {
+  box-shadow: none;
+  transform: translateY(0);
 }
 
 .cards-title {
