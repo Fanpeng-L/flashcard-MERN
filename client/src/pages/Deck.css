@@ -1,0 +1,141 @@
+/* Deck Main Container */
+.deck-main-container {
+  display: grid;
+  grid-template-columns: 30% auto;
+  gap: 6rem;
+  padding: 1rem 4rem;
+}
+
+/* ///////////////////////////////////// */
+
+/* Deck left area */
+.deck-left-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.deck-title {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.deck-title h1 {
+  font-size: 2.6rem;
+  margin-left: 0.6rem;
+}
+
+.deck-left-container h3 {
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-bottom: 3rem;
+}
+
+.deck-left-container h4 {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+/* Create Card form */
+.createCard-form {
+  background-color: var(--white-green);
+  box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  border-radius: 0.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.createCard-input-wrapper {
+  height: 96%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+}
+
+.createCard-input-question {
+  position: relative;
+  width: 100%;
+}
+.createCard-input-answer {
+  position: relative;
+  width: 100%;
+}
+
+.createCard-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding-top: 1rem;
+  border: 0.1rem solid var(--black);
+  border-radius: 1rem;
+  font-family: inherit;
+  outline: none;
+  padding: 1.25rem;
+  background-color: var(--white-green);
+  transition: all 0.3s ease;
+}
+
+.createCard-input:hover {
+  border-color: var(--purple2);
+}
+
+.createCard-input:focus {
+  border-color: var(--purple2);
+}
+
+.createCard-label {
+  position: absolute;
+  left: 0.8rem;
+  top: 0.8rem;
+  padding: 0;
+  cursor: text;
+  transition: all 0.3s ease;
+  color: var(--grey2);
+  background-color: var(--white-green);
+}
+
+.createCard-input:focus ~ .createCard-label,
+.createCard-input:not(:placeholder-shown).createCard-input:not(:focus)
+  ~ .createCard-label {
+  color: var(--purple2);
+  top: -0.5rem;
+  font-size: 0.8rem;
+  left: 0.8rem;
+}
+
+.createCard-btn {
+  width: 8rem;
+  margin-top: 2.6rem;
+  background-color: var(--mocha-green);
+  border: 0.1rem solid var(--black);
+  border-radius: 30px;
+  box-shadow: var(--black) 4px 4px 0 0;
+  font-weight: 400;
+  padding: 0.8rem;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  transition: all 0.1s ease;
+}
+
+.createCard-btn:hover {
+  background-color: var(--purple);
+  transform: translateY(-2px);
+}
+
+.createCard-btn:active {
+  box-shadow: var(--black) 2px 2px 0 0;
+  transform: translate(2px, 2px);
+}

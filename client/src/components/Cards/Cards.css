@@ -1,0 +1,68 @@
+/* Cards list */
+.cards-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+}
+
+.cards-container {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.cards-content {
+  background-color: var(--mocha-green);
+  padding: 4rem;
+  border-radius: 1.6rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  position: relative;
+  box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.cards-content:hover {
+  transform: scale(1.04);
+  background-color: var(--purple);
+}
+
+.cards-title {
+  font-size: 1.6rem;
+}
+
+.cards-delete {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  border: none;
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+
+.cards-delete:hover {
+  transform: scale(1.1);
+}
+
+.cards-edit {
+  margin-top: 1rem;
+  background-color: var(--grey);
+  border: none;
+  border-radius: 2rem;
+  justify-content: center;
+  outline: none;
+  padding: 0.4rem 1rem;
+  transition: box-shadow 0.2s, -webkit-box-shadow 0.2s;
+  white-space: nowrap;
+  touch-action: manipulation;
+}
+
+.cards-edit:hover {
+  box-shadow: var(--purple2) 0 0 0 3px, transparent 0 0 0 0;
+  background-color: var(--purple);
+}

@@ -42,6 +42,7 @@ export default function DecksList() {
       <h1 className="home-title">
         <span>Flash & Learn</span>: Your Shortcut to Mastery!
       </h1>
+
       <form className="createDeck-form" onSubmit={createDeckHandler}>
         <div className="createDeck-input-wrapper">
           <input
@@ -60,7 +61,9 @@ export default function DecksList() {
         </div>
         <button className="createDeck-btn">Create A Deck</button>
       </form>
+
       <h3 className="decks-intro">Here are all your flashcards sets:</h3>
+
       <ul className="decks">
         {decks.map((deck) => (
           <li key={deck._id}>
@@ -71,7 +74,11 @@ export default function DecksList() {
               <MdDeleteOutline size={20} />
             </div>
 
-            <Link to={`/decks/:${deck._id}`} className="decks-link">
+            <Link
+              to={`/decks/:${deck._id}`}
+              state={{ title: deck.title }}
+              className="decks-link"
+            >
               <div className="decks-link-title">{deck.title}</div>
             </Link>
           </li>
