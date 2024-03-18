@@ -11,8 +11,6 @@ config();
 
 const app = express();
 
-const port = 5000;
-
 //middleware to translate json data which sent from client
 app.use(express.json());
 //fix cors error
@@ -29,7 +27,7 @@ app.get("/decks/:deckId", getADeckController);
 
 // connect to mongoose
 mongoose.connect(process.env.MONGO_URL!).then(() => {
-  app.listen(port, () => {
-    console.log(`The app listening on port ${port}`);
+  app.listen(process.env.PORT, () => {
+    console.log(`The app listening on port ${process.env.PORT}`);
   });
 });
