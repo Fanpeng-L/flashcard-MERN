@@ -6,10 +6,13 @@ import { config } from "dotenv";
 import getDecksController from "./controllers/getDecksController";
 import createDeckController from "./controllers/createDeckController";
 import deleteDeckController from "./controllers/deleteDeckController";
+import path from "path";
 import getADeckController from "./controllers/getADeckController";
 config();
 
 const app = express();
+
+app.use("/static", express.static(path.join(__dirname, "dist")));
 
 const PORT = process.env.PORT || 5000;
 
