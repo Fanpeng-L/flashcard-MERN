@@ -12,7 +12,7 @@ config();
 
 const app = express();
 
-app.use("/static", express.static(path.join(__dirname, "dist")));
+app.use("/static", express.static(path.join(__dirname, "client/dist")));
 
 const PORT = process.env.PORT || 5000;
 
