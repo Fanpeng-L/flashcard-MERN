@@ -4,7 +4,7 @@ Flashcard Generator is a web application built with React, TypeScript, and Node.
 
 ## Preview
 
-![Website Demo](./client/src/assets/preview.mov)
+<img src="./client/src/assets/preview.gif" width=800>
 
 ## Features
 
